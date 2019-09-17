@@ -9,7 +9,7 @@
 <div class="uper">
   @if(session()->get('success'))
     <div class="alert alert-success">
-      {{ session()->get('success') }}  
+      {{ session()->get('success') }}
     </div><br />
   @endif
 
@@ -17,10 +17,10 @@
   <table class="table table-striped">
     <thead>
         <tr>
-          <td>First Name</td>
-          <td>Last Name</td>
+          <td>ID</td>
+          <td>Name</td>
           <!-- <td>parent Name </td> -->
-         
+
         </tr>
     </thead>
     <tbody>
@@ -29,7 +29,7 @@
             <td>{{$student->id}}</td>
             <td>{{$student->name}}</td>
             <!-- <td>{{$student->parent_id}}</td> -->
-                      <td><a href="{{ route('Students.edit',$student->id)}}" class="btn btn-primary">Edit</a></td>
+                      <td><a href="{{ route('Sparents.edit',$student->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('Students.destroy', $student->id)}}" method="post">
                   @csrf
