@@ -14,6 +14,7 @@ class CreateSparentsTable extends Migration
     public function up()
     {
         Schema::create('sparents', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->integer('code');
             $table->string('first_name');
@@ -23,7 +24,8 @@ class CreateSparentsTable extends Migration
             $table->string('mobile_number1');
             $table->string('mobile_number2');
             $table->string('address');
-            $table->unsignedInteger('student_id');
+            $table->bigInteger('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->timestamps();
         });
     }
