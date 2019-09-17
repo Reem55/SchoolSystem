@@ -8,12 +8,8 @@ class student extends Model
 {
     protected $fillable =['name' ];
 
-
-    // public function Sparent()
-    // {
-
-    // 	return $this belongsTo(Sparent::class);
-    // }
-
-
+    public function parent()
+    {
+        return $this->belongsTo('App\Sparent');
     }
+}

@@ -65,8 +65,7 @@
            <label for="">student</label>
           <select name="student_id" id="" class="form-control">
             @foreach ($students as $student)
-            <option value="{{ $student->id}}"> {{$student->name}}</option> 
-               
+            <option value="{{ $student->id}}"> {{$student->name}}</option>
              @endforeach
                           </select>
                           <br>

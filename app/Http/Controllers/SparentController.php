@@ -16,8 +16,8 @@ class SparentController extends Controller
     public function index()
     {
 
-      $Sparents = Sparent::with('student')->get();
-     return view('Sparents.index',compact('Sparents') );
+        $Sparents = Sparent::with('students')->get();
+        return view('Sparents.index',compact('Sparents'));
 
     }
 
@@ -29,11 +29,8 @@ class SparentController extends Controller
     public function create()
     {
 
-      $students = Student::all();   
-       return view('Sparents.create',compact('Sparent') ,['student' => $students]);
-
-
-
+      $students = Student::all();
+        return view('Sparents.create',compact('students') ,['students' => $students]);
    }
 
     /**
@@ -68,7 +65,7 @@ class SparentController extends Controller
         'address'=> $request->get('address'),
         'student_id'=> $request->get('student_id')
       ]);
-      $students = Student::all(); 
+      $students = Student::all();
       $sparent->save();
       return redirect('/Sparents')->with('success', 'parent has been added');
     }
@@ -85,7 +82,7 @@ class SparentController extends Controller
       $Sparent = Sparent::find($id);
 
      return view('Sparents.show', compact('Sparent'));
-     
+
     }
 
     /**
@@ -97,7 +94,7 @@ class SparentController extends Controller
     public function edit($id)
     {
          $Sparent = Sparent::find($id);
-         $students = Student::all(); 
+         $students = Student::all();
 
         return view('Sparents.edit', compact('Sparent') ,['student' => $students]);    }
 
@@ -110,7 +107,7 @@ class SparentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
       $request->validate([
         'code'=>'required',
         'first_name'=> 'required',
@@ -145,6 +142,6 @@ class SparentController extends Controller
   $sparent = sparent::find($id);
      $sparent->delete();
 
-     return redirect('/sparents')->with('success', 'parent has been deleted Successfully');
+     return redirect('/Sparents')->with('success', 'parent has been deleted Successfully');
     }
 }
