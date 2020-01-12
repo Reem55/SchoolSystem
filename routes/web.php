@@ -15,13 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::resource('buses','BusController');
-
-Route::resource('Sparents', 'SparentController');
-
-Route::resource('Students', 'StudentController');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth:admin'], function () {
+
+	Route::resource('buses','BusController');
+
+	Route::resource('Sparents', 'SparentController');
+
+	Route::resource('Students', 'StudentController');
+
+	Route::get('/home', 'HomeController@index')->name('home');
+});
