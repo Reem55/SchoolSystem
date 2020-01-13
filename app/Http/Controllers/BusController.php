@@ -44,7 +44,8 @@ class BusController extends Controller
              'phone'=>'required',
              'password'=>'required',
              'driver_id'=>'required',
-        
+             'start_work_time' => 'required',
+             'end_work_time' => 'required',
         ]);
         Bus::create($request->all());
 
@@ -91,6 +92,8 @@ class BusController extends Controller
              'phone'=>'required',
              'password'=>'required',
              'driver_id'=>'required',
+             'start_work_time' => 'required',
+             'end_work_time' => 'required',
 
       ]);
 
@@ -101,6 +104,8 @@ class BusController extends Controller
         $bus->phone = $request->get('phone');
         $bus->password = $request->get('password');
         $bus->driver_id = $request->get('driver_id');
+        $bus->start_work_time = $request->get('start_work_time');
+        $bus->end_work_time = $request->get('end_work_time');
         $bus->save();
       return redirect('/buses')->with('success', 'bus has been updated');  
          }

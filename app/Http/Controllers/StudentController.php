@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\student;
 use App\Sparent;
+use App\bus;
 
 class StudentController extends Controller
 {
@@ -22,8 +23,9 @@ class StudentController extends Controller
     
     public function create()
     {
-     $parents = Sparent::all();   
-     return view('Students.create', compact('parents'));
+     $parents = Sparent::all(); 
+     $buses = bus::all();  
+     return view('Students.create', compact('parents','buses'));
 
     }
 
@@ -68,8 +70,9 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = student::find($id);
+        $buses = bus::all();  
 
-        return view('Students.edit', compact('student'));
+        return view('Students.edit', compact('student','buses'));
     }
 
     /**

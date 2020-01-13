@@ -29,7 +29,7 @@
             <td>{{$student->id}}</td>
             <td>{{$student->name}}</td>
             <!-- <td>{{$student->parent_id}}</td> -->
-                      <td><a href="{{ route('Sparents.edit',$student->id)}}" class="btn btn-primary">Edit</a></td>
+                      <td><a href="{{ route('Students.edit',$student->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
                 <form action="{{ route('Students.destroy', $student->id)}}" method="post">
                   @csrf

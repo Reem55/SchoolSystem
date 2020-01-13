@@ -51,6 +51,30 @@ return [
             'provider' => 'users',
             'hash' => true,
         ],
+
+
+        'parent' => [
+            'driver' => 'session',
+            'provider' => 'parents',
+        ],
+
+        'parent_api'=>[
+            'driver' => 'passport',
+            'provider' => 'parents',
+            'hash' => false,
+        ],
+
+
+        'bus' => [
+            'driver' => 'session',
+            'provider' => 'buses',
+        ],
+
+        'bus_api'=>[
+            'driver' => 'passport',
+            'provider' => 'buses',
+            'hash' => false,
+        ]
     ],
 
     /*
@@ -74,6 +98,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'parents' => [
+            'driver' => 'eloquent',
+            'model' => \App\Sparent::class,
+        ],
+
+        'buses' => [
+            'driver' => 'eloquent',
+            'model' => \App\bus::class,
         ],
 
         // 'users' => [

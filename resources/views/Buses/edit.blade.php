@@ -37,6 +37,16 @@
           <label for="driver_id">Driver ID:</label>
           <input type="text" class="form-control" name="driver_id" value={{ $bus->address}} />
         </div>
+
+          <div class="form-group">
+              <label for="start_work_time">Start Time</label>
+              <input type="time" class="form-control" name="start_work_time" value="{{$bus->start_work_time}}"/>
+          </div>
+
+          <div class="form-group">
+              <label for="end_work_time">End Time</label>
+              <input type="time" class="form-control" name="end_work_time" value="{{$bus->end_work_time}}"/>
+          </div>
         <button type="submit" class="btn btn-outline-primary">Update</button>
       </form>
   </div>

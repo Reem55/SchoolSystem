@@ -13,6 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
+////////////// Emad Routes /////////////
+Route::group(['prefix' => 'v1/parents', 'namespace' => 'API'], function () {
+
+	Route::post('login', 'ParentLoginController@index');
+
+});
+ 
+
+Route::group(['prefix' => 'v1/buses', 'namespace' => 'API'], function () {
+
+	Route::post('login', 'BusLoginController@index');
+
+}); 
+////////////// End Emad Routes /////////////
+
+
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');
 

@@ -28,7 +28,15 @@
            <input type="text" class="form-control" name="name"/>
           </div>
 
-        
+          <div class="form-group">
+            <label for="">Bus :</label>
+            <select name="bus_id" class="form-control">
+              @foreach ($buses as $bus)
+                <option value="{{ $bus->id}}"> {{$bus->code}}</option>
+              @endforeach
+            </select>
+            <br>
+          </div>
           <!-- <div class="form-group">
             <label for="">parent</label>
           <select name="parent_id" id="" class="form-control">
