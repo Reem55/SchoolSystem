@@ -22,15 +22,19 @@ Route::group(['prefix' => 'v1/parents', 'namespace' => 'API'], function () {
 
 Route::group(['prefix' => 'v1/students', 'namespace' => 'API'], function () {
 
-    Route::get('/{id}/location', function () {
-        return response()->json(['lng' => '31.2001', 'lat' => '29.9187']);
-    });
+    // Route::get('/{id}/location', function () {
+    //     return response()->json(['lng' => '31.2001', 'lat' => '29.9187']);
+    // });
+
+    Route::get('/{id}/location','BusTrackingController@index');
 
 });
 
 Route::group(['prefix' => 'v1/buses', 'namespace' => 'API'], function () {
 
     Route::post('login', 'BusLoginController@index');
+    Route::post('{student_id}/post-location', 'BusTrackingController@store');
+
 
 });
 ////////////// End Emad Routes /////////////
