@@ -37,9 +37,10 @@ class BusTrackingController extends Controller
 
     }
 
-    public function store($id)
+    public function store()
     {
-        $busIsMoving = BusTracking::where('bus_id',$id)
+
+        $busIsMoving = BusTracking::where('bus_id',auth()->id())
                         ->whereHas('bus',function($q){
                             $q->where('start_work_time','<=',date("H:i:s"))->where('end_work_time','>',date("H:i:s"));
                         })
@@ -56,7 +57,7 @@ class BusTrackingController extends Controller
             ]);
         }else{
             BusTracking::create([
-                'bus_id' => $id,
+                'bus_id' => auth()->id(),
                 'current_longitude' => request('current_longitude'),
                 'current_latitude' => request('current_latitude'),
             ]);
