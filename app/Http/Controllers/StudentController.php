@@ -39,7 +39,7 @@ class StudentController extends Controller
     {
          $request->validate([
 
-             
+             'bus_id' =>'required',
              'name'=>'required',
              // 'parent_id'=>'required',
         ]);
@@ -86,6 +86,7 @@ class StudentController extends Controller
     {
           $request->validate([
              'name'=>'required',
+             'bus_id' => 'required'
                           ]);
 
       $student = student::find($id);
